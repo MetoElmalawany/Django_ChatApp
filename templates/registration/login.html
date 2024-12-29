@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+{% block title %}Login{% endblock %}
+
+{% block content %}
+
+<div style="position: absolute; top: 8px; right: 20px;">
+    <form id="register" method="post" action="{% url 'register' %}">
+        {% csrf_token %}
+        <button type="submit" class="btn btn-outline-primary">Register</button>
+    </form>
+</div>
+
+
+<div class="container">
+    <h5 class="alert alert-info text-center">Log In</h5>
+    <div class="btn btn-light d-flex justify-content-center" style="padding: 34px 30%;">
+        <form method="post">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit" class="btn btn-primary btn-lg btn-block">Log In</button>
+        </form>
+    </div>
+</div>
+{% endblock %}
